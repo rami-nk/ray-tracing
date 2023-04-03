@@ -6,6 +6,6 @@ set(CMAKE_CXX_STANDARD 23)
 find_package(GLEW 2.0 REQUIRED)
 find_package(glfw3 3.3 REQUIRED)
 
-add_executable(ray_tracing main.cpp)
+add_executable(ray_tracing main.cpp VertexArray.cpp VertexArray.h VertexBufferLayout.cpp VertexBufferLayout.h LayoutElement.cpp LayoutElement.h VertexBuffer.cpp VertexBuffer.h)
 
 target_link_libraries(ray_tracing glfw GLEW::GLEW)
