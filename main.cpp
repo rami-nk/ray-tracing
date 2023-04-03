@@ -1,5 +1,6 @@
 #include "GL/glew.h"
 #include "VertexArray.h"
+#include "Renderer.h"
 
 #include <GLFW/glfw3.h>
 
@@ -119,23 +120,22 @@ int main() {
     VertexBuffer vertexBuffer(vertices, sizeof(vertices));
 
     VertexBufferLayout layout;
-    layout.pushFloat(3);
+    layout.PushFloat(3);
 
-    vertexArray.addBuffer(vertexBuffer, layout);
+    vertexArray.AddBuffer(vertexBuffer, layout);
 
-    vertexBuffer.unbind();
+    vertexBuffer.Unbind();
 
-    vertexArray.unbind();
+    vertexArray.Unbind();
 
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        Renderer::ClearColor({0.2f, 0.3f, 0.3f, 1.0f});
+        Renderer::Clear();
 
-        // draw our first triangle
+        // Draw our first triangle
         glUseProgram(shaderProgram);
-        vertexArray.bind();
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        // glBindVertexArray(0); // no need to unbind it every time
+        vertexArray.Bind();
+        Renderer::Draw(vertexArray, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

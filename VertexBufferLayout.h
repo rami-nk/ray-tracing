@@ -7,7 +7,7 @@ class VertexBufferLayout {
 public:
     VertexBufferLayout() = default;
 
-    void pushFloat(unsigned int count);
+    void PushFloat(unsigned int count);
 
     [[nodiscard]] inline const std::vector<LayoutElement>& getElements() const { return m_Elements; }
     [[nodiscard]] inline unsigned int getStride() const { return m_Stride; }

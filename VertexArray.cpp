@@ -1,8 +1,8 @@
 #include "VertexArray.h"
 
-void VertexArray::addBuffer(const VertexBuffer &vb, const VertexBufferLayout &layout) const {
-    bind();
-    vb.bind();
+void VertexArray::AddBuffer(const VertexBuffer &vb, const VertexBufferLayout &layout) const {
+    Bind();
+    vb.Bind();
     const auto& elements = layout.getElements();
     unsigned int offset = 0;
     for (unsigned int i = 0; i < elements.size(); i++) {
@@ -16,17 +16,17 @@ void VertexArray::addBuffer(const VertexBuffer &vb, const VertexBufferLayout &la
 VertexArray::VertexArray() {
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VAO);
-    bind();
+    Bind();
 }
 
 VertexArray::~VertexArray() {
     glBindVertexArray(0);
 }
 
-void VertexArray::bind() const {
+void VertexArray::Bind() const {
     glBindVertexArray(VAO);
 }
 
-void VertexArray::unbind() const {
+void VertexArray::Unbind() const {
     glBindVertexArray(0);
 }

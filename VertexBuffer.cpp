@@ -11,10 +11,10 @@ VertexBuffer::~VertexBuffer() {
     glDeleteBuffers(1, &VBO);
 }
 
-void VertexBuffer::bind() const {
+void VertexBuffer::Bind() const {
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
 }
 
-void VertexBuffer::unbind() const {
+void VertexBuffer::Unbind() const {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

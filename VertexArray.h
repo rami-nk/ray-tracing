@@ -8,10 +8,10 @@ public:
     VertexArray();
     ~VertexArray();
 
-    void addBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout) const;
+    void AddBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout) const;
 
-    void bind() const;
-    void unbind() const;
+    void Bind() const;
+    void Unbind() const;
 
 private:
     unsigned int VAO{};
